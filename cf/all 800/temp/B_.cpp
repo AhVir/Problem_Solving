@@ -2,49 +2,47 @@
 using namespace std;
 
 #define pr(x) cout << #x << " = " << x << endl
-#define int unsigned long long
+#define int long long
 #define endl "\n"
 
 void solve(){
     int n; cin >> n;
     int oddCnt = 0, evenCnt = 0;
-    int maxOdd = -10;
+    int maxOdd = 0;
+    int maxOddIdx = -1;
     vector<int> nums;
     for(int i=0; i<n; i++){
         int t; cin >> t;
         nums.push_back(t);
         if(t%2==0) evenCnt++;
-        else oddCnt++, maxOdd = max(maxOdd, t);
+        else{
+            oddCnt++;
+            if(t > maxOdd){
+                maxOdd = t;
+                maxOddIdx = i;
+            }
+        }
     }
 
     if(oddCnt == 0 || evenCnt == 0){
         cout << 0 << endl;
         return;
     }
-    //pr(evenCnt);
-    //pr(oddCnt);
+    sort(nums.begin(), nums.end()); 
+    int cnt = evenCnt;
 
-    //converting even into Odd
-    sort(nums.begin(), nums.end());
-    int cnt = 0;
     for(int i=0; i<n; i++){
         int num = nums[i];
+
         if(num%2 == 0){
-            //pr(num);
             if(num > maxOdd){
                 maxOdd += num;
                 cnt++;
-                i--;
             }
-            else{
-                maxOdd = max(maxOdd, num+maxOdd);
-                nums[i] = num + maxOdd;
-                cnt++;
-            }
+            else maxOdd = max(maxOdd, num+maxOdd);
         }
     }
 
-    //pr(cnt);
     cout << cnt << endl;
 }
 
