@@ -9,14 +9,16 @@ int32_t main(){
 
     int n; cin >> n;
 
+    int num = 0, base = 1, sumOfNums = 0; 
     int ht = 0;
-    int num = 1;
-    int base = 1;
-    while(num <= n){
+    while(num < n){
         ht++;
-        num += (++base);
-        cout << "n: " << num << ", ht: " << ht << endl;
+
+        sumOfNums += num;
+        num += (sumOfNums+base);
+        base++;
     }
+
     cout << ht << endl;
 
     return 0;
