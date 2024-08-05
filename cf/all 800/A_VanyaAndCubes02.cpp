@@ -11,22 +11,18 @@ using namespace std;
 void solve(){
     int n; cin >> n;
     int sumOfNums = 0;
-    int num = 0;
+    int baseNum = 1;
     int cnt = 0;
     int total = 0;
 
     while(total <= n){
-        num++;
-        sumOfNums += num;
-        total += sumOfNums;
         cnt++;
-        // pr(num);
-        // pr(sumOfNums);
-        // pr(total);
+        sumOfNums += baseNum;
+        baseNum++;
+        total += sumOfNums;
     }
-
-    // pr(cnt);
-    cout << --cnt << endl;
+    cnt--;
+    cout << cnt << endl;
 }
 
 int32_t main(){
