@@ -12,21 +12,23 @@ int ans[26] = {0};
 
 void solve(){
     int n; cin >> n;
+    string st; cin >> st;
+    hi;
     if(n > str.size() || n < str.size()){
         cout << "NO" << endl;
+        return;
     }
-    string st; cin >> st;
     if(find(st.begin(), st.end(), 'T') == st.end()){
         cout << "NO" << endl;
         return;
     }
+    int idx = find(st.begin(), st.end(), 'T')-st.begin();
+    //pr(idx);
+    st.erase(idx, 1);
 
-    st.erase(find(st.begin(), st.end(), 'T')-st.begin(), 1);
-
-    for(int i=0; i<n; i++){
+    for(int i=0; i<st.size(); i++){
         if(st[i] >= 'a' && st[i] <= 'z') ans[st[i]-'a']++;
         else{
-            hi;
             cout << "NO" << endl;
             return;
         }
