@@ -8,10 +8,16 @@ using namespace std;
 #define int long long
 
 void solve(){
-    int a = 10102, b = 9832, c = 7604, d = 8888;
-    cout << a*b*c*d << endl;
+    int a, b, c, d; cin >> a >> b >> c >> d;
+    a %= 100, b %= 100, c %= 100, d %= 100;
 
-    cout << 02 * 32*04*88 << endl;
+    int res = (a*b*c*d);
+    string ans = "";
+    ans.push_back((res%10)+'0');
+    res/=10;
+    ans.push_back((res%10)+'0');
+    reverse(ans.begin(), ans.end());
+    cout << ans << endl;
 }
 
 int32_t main(){
