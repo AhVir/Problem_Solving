@@ -30,6 +30,36 @@ void solve(){
         }
     }
 
+    //if case of any a1/a2 == b1/b2
+    if(max(a1, a2) == max(b1, b2)){
+        if(min(a1, a2) > min(b1, b2)){
+            prt(2);
+            return;
+        }
+        else if(min(a1, a2) < min(b1, b2)){
+            prt(0);
+            return;
+        }
+    }
+    if(max(a1, a2) == min(b1, b2)){
+        prt(0);
+        return;
+    }
+    if(min(a1, a2) == max(b1, b2)){
+        prt(4);
+        return;
+    }
+    if(min(a1, a2) == min(b1, b2)){
+        if(max(a1, a2) < max(b1, b2)){
+            prt(0);
+            return;
+        }
+        else if(max(a1, a2) > max(b1, b2)){
+            prt(2);
+            return;
+        }
+    }
+
     //a1, a2 > b1, b2
     if(max(a1, a2) > max(b1, b2) && min(a1, a2) > max(b1, b2)){
         prt(4);
@@ -40,8 +70,31 @@ void solve(){
         return;
     }
 
-    if(max(a1, a2) < max(b1, b2) && min(a1, a2) > min(b1, b2)){
-        
+    if(max(a1, a2) > max(b1, b2) && min(a1, a2) < max(b1, b2)){
+        if(min(a1, a2) > min(b1, b2)){
+            prt(2);
+            return;
+        }
+        else if(min(a1, a2) < min(b1, b2)){
+            prt(0);
+            return;
+        }
+    }
+
+    if(max(a1, a2) < max(b1, b2)){
+        if(min(a1, a2) > min(b1, b2)){
+            prt(0);
+            return;
+        }
+        else if(min(a1, a2) < min(b1, b2)){
+            prt(0);
+            return;
+        }
+    }
+
+    if(max(a1, a2) < min(b1, b2)){
+        prt(0);
+        return;
     }
 }
 
@@ -49,8 +102,8 @@ int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    //int t; cin >> t;
-    int t = 1;
+    int t; cin >> t;
+    // int t = 1;
     while(t--) solve();
 
     return 0;
