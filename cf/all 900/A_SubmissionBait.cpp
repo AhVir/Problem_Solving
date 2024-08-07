@@ -6,17 +6,26 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-#define int long long
+//#define int long long
 //#define int unsigned long long
 
 void solve(){
-    int a, b; cin >> a >> b;
-    if(a%b == 0) prt(0);
+    int n; cin >> n;
+    vector<int> nums;
+    int maxNum = 0;
+    for(int i=0; i<n; i++){
+        int t; cin >> t;
+        nums.push_back(t);
+        maxNum = max(maxNum, t);
+    }
+
+    int cnt = count(nums.begin(), nums.end(), maxNum);
+    // pr(cnt);
+    if(cnt%2 != 0) prt("YES");
     else{
-        int cal = a/b;
-        cal++;
-        cal *= b;
-        prt(cal-a);
+        int restOfNums = n-cnt;
+        if(restOfNums%2 != 0) prt("YES");
+        else prt("NO");
     }
 }
 
