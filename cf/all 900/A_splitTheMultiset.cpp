@@ -16,11 +16,12 @@ void solve(){
         prt(0);
         return;
     }
-    int ops = 1; //the cost of dividing n in at-most k pieces
+    // int ops = 1; //the cost of dividing n in at-most k pieces
     if(n <= k){
-        prt(ops);
+        prt(1);
         return;
     }
+    int ops = 0;
     ops += (n/k);
     if(n%k != 0) ops++;
 
