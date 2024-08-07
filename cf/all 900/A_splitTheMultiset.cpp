@@ -22,10 +22,14 @@ void solve(){
         return;
     }
     int ops = 0;
-    ops += (n/k);
-    if(n%k != 0) ops++;
+    while(n > 1){
+        n -= (k*(k-1));
+        ops+=k;
+        pr(n);
+        pr(k*(k-1));
+    }
 
-    prt(ops);
+    pr(ops);
 }
 
 int32_t main(){
