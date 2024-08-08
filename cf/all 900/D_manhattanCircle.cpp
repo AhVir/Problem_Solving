@@ -6,31 +6,24 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-#define int long long
+//#define int long long
 //#define int unsigned long long
 
 void solve(){
     int n, m; cin >> n >> m;
-    int minY = -1, maxX = -1, maxCnt = -1;
-
+    int minY = -1, maxY;
 
     for(int i=1; i<=n; i++){
-        string temp; cin >> temp;
-        int cnt = 0;
+        string str; cin >> str;
         for(int j=1; j<=m; j++){
-            if(temp[j-1] == '#'){
-                if(minY == -1){
-                    minY = j;
-                }
-                cnt++;
+            if(str[j-1] == '#'){
+                if(minY == -1) minY = j;
+                maxY = j;
             }
         }
-        if(cnt > maxCnt) maxCnt = cnt, maxX = i;
     }
-    // pr(minY);
-    // pr(maxX);
-    // hi;
-    cout << maxX << " " << minY << endl;
+
+    pr(minY); pr(maxY); hi;
 }
 
 int32_t main(){
