@@ -25,16 +25,16 @@ void solve(){
     }
 
     vector<int> nums = {p1, p2, p3};
-    sort(nums.rbegin(), nums.rend());
-    // for(int X:nums) cout << X << " ";
-    // cout << endl;
-    int drawCnt = nums[2];
-    nums[0] -= nums[2];
-    nums[1] -= nums[2];
-    sort(nums.rbegin(), nums.rend());
-    drawCnt += (nums[1]);
-    
-    pr(drawCnt);
+    int cnt = 0;    
+    int sum = p1 + p2 + p3;
+    while((sum) > 0){
+        sort(nums.rbegin(), nums.rend());
+        cnt++;
+        nums[0]--;
+        nums[1]--;
+        sum = accumulate(nums.begin(), nums.end(), 0);
+    }
+    pr(cnt);
 }
 
 int32_t main(){
