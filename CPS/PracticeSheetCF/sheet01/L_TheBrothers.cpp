@@ -10,27 +10,19 @@ using namespace std;
 //#define int unsigned long long
 
 void solve(){
-    int p1, p2, p3; cin >> p1 >> p2 >> p3;
-    int sum = p1 + p2 + p3;
-    if(sum%2 != 0){
-        prt(-1);
-        return;
-    }
+    string s1, s2; cin >> s1 >> s2;
+    string s3, s4; cin >> s3 >> s4;
 
-    int cnt = p1;
-    int restOfDraw = (p2+p3-p1)/2;
-    cnt += (min(p2, restOfDraw));
-
-    // pr(cnt);
-    prt(cnt);
+    if(s2 == s4) prt("ARE Brothers");
+    else prt("NOT");
 }
 
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t; cin >> t;
-    // int t = 1;
+    //int t; cin >> t;
+    int t = 1;
     while(t--) solve();
 
     return 0;
