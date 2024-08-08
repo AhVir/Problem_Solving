@@ -11,19 +11,22 @@ using namespace std;
 
 void solve(){
     int n, m; cin >> n >> m;
-    int minY = -1, maxY;
+    int minX = -1, maxX;
+    int minY = -1;
 
     for(int i=1; i<=n; i++){
         string str; cin >> str;
         for(int j=1; j<=m; j++){
             if(str[j-1] == '#'){
+                if(minX == -1) minX = i;
                 if(minY == -1) minY = j;
-                maxY = j;
+                maxX = i;
             }
         }
     }
 
-    pr(minY); pr(maxY); hi;
+    // pr(minX); pr(maxX); pr(minY); hi;
+    cout << (minX+maxX)/2 << " " << minY << endl;
 }
 
 int32_t main(){
