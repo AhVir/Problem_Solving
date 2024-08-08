@@ -26,11 +26,11 @@ void solve(){
 
     vector<int> nums = {p1, p2, p3};
     sort(nums.rbegin(), nums.rend());
-    for(int X:nums) cout << X << " ";
-    cout << endl;
-    int drawCnt = nums[1];
-    nums[0] -= nums[1];
-    nums[1] = 0;
+    // for(int X:nums) cout << X << " ";
+    // cout << endl;
+    int drawCnt = nums[2];
+    nums[0] -= nums[2];
+    nums[1] -= nums[2];
     sort(nums.rbegin(), nums.rend());
     drawCnt += (nums[1]);
     
