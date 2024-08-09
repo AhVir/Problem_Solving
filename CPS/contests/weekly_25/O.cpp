@@ -6,19 +6,15 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-// #define int long long
-#define int unsigned long long
+#define int long long
+// #define int unsigned long long
 
 void solve(){
     int n, m; cin >> n >> m;
     vector<string> pictures;
 
     for(int i=0; i<n; i++){
-        string temp = "";
-        for(int j=0; j<m; j++){
-            char t; cin >> t;
-            temp.push_back(t);
-        }
+        string temp; cin >> temp;
         pictures.push_back(temp);
     }
     // prt("Printing: ");
@@ -53,13 +49,9 @@ void solve(){
             maxColIdx = i;
         }
     }
-    if(colCount == n && rowCount == m) prt(0);
-    else{
-        int neededMin = (n-colCount) + (m-rowCount);
-        if(pictures[maxRowIdx][maxColIdx] != '*') neededMin--;
-        prt(neededMin);
-    }
-
+    int neededMin = (n-colCount) + (m-rowCount);
+    if(pictures[maxRowIdx][maxColIdx] != '*') neededMin--;
+    prt(neededMin);
 }
 
 int32_t main(){
