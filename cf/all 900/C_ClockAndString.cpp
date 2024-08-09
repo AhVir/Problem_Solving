@@ -10,13 +10,15 @@ using namespace std;
 //#define int unsigned long long
 
 void solve(){
-    int n; cin >> n;
-    string str; cin >> str;
+    int a, b, c, d; cin >> a >> b >> c >> d;
+    int temp = a;
+    a = min(a, b);
+    b = max(temp, b);
 
-    int cnt = count(str.begin(), str.end(), 'U');
-
-    if(cnt%2 == 0) prt("NO");
-    else prt("YES");
+    if((c >= a && c <= b)&&(d >= a && d <= b)) prt("NO");
+    else if(c>= a && c <= b) prt("YES");
+    else if(d>= a && d <= b) prt("YES");
+    else prt("NO");
 }
 
 int32_t main(){
