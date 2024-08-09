@@ -6,29 +6,27 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-//#define int long long
+#define int long long
 //#define int unsigned long long
 
 void solve(){
     int n; cin >> n;
     string str; cin >> str;
 
-    int cnt = count(str.begin(), str.end(), '1');
-    // pr(cnt);
-    if(n == 2 && cnt == 2){
-        prt("NO");
-        return;
-    }
-    if(cnt == 2){
-        for(int i=0; i<n-1; i++){
-            if(str[i] == '1' && str[i+1] == '1'){
-                prt("NO");
-                return;
-            }
+    int cnt = 0;
+    for(int i=0; i<n-2; i++){
+        if(str[i] == 'm' && str[i+1] == 'a' && str[i+2] == 'p'){
+            cnt++;
+            i = i+2;
+            continue;
+        }
+        if(str[i] == 'p' && str[i+1] == 'i' && str[i+2] == 'e'){
+            cnt++;
+            i = i+2;
         }
     }
-    if(cnt%2 == 0) prt("YES");
-    else prt("NO");
+
+    prt(cnt);
 }
 
 int32_t main(){
