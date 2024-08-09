@@ -11,26 +11,13 @@ using namespace std;
 
 void solve(){
     int n; cin >> n;
-    vector<int> a;
-    for(int i=0; i<n; i++){
-        int temp; cin >> temp;
-        a.push_back(temp);
-    }
+    string str; cin >> str;
 
-    int m; cin >> m;
-    vector<int> q;
-    for(int i=0; i<m; i++){
-        int temp; cin >> temp;
-        q.push_back(temp);
-    }
-
-    sort(a.rbegin(), a.rend());
-
-    int sum = accumulate(a.begin(), a.end(), 0);
-    for(int i=0; i<m; i++){
-        int cal = sum - a[q[i]-1];
-        prt(cal);
-    }
+    int cnt8 = count(str.begin(), str.end(), '8');
+    int extraMove = n-11;
+    int moveCanBeSurvived = (cnt8*2) - 1;
+    if(extraMove <= moveCanBeSurvived) prt("YES");
+    else prt("NO");
 }
 
 int32_t main(){
