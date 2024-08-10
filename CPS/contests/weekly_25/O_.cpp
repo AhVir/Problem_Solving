@@ -57,8 +57,6 @@ void solve(){
     int neededMin = (n-colCount) + (m-rowCount);
     if(pictures[maxRowIdx][maxColIdx] != '*') neededMin--;
     prt(neededMin);
-    }
-
 }
 
 int32_t main(){
