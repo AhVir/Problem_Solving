@@ -6,16 +6,21 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-#define int long long
-// #define int unsigned long long
+// #define int long long
+#define int unsigned long long
+
+const int sz = 5e4+123;
+int rows[sz], cols[sz];
+string pictures[sz];
 
 void solve(){
     int n, m; cin >> n >> m;
-    vector<string> pictures;
+    //resetting matrix numbers
+    memset(rows, 0, sizeof(rows));
+    memset(cols, 0, sizeof(cols));
 
     for(int i=0; i<n; i++){
-        string temp; cin >> temp;
-        pictures.push_back(temp);
+        cin >> pictures[i];
     }
     // prt("Printing: ");
     // for(int i=0; i<n; i++){
@@ -24,36 +29,44 @@ void solve(){
     // }
 
     //finding maxRow count:
-    vector<int> rows(n, 0);
+    int rowCount = 0;
+    int maxRowIdx = 0;
     for(int i=0; i<n; i++){
         int tempCnt = 0;
         for(int j=0; j<m; j++){
-            if(pictures[i][j] == '.') rows[i]++;
+            if(pictures[i][j] == '*') tempCnt++;
+        }
+        if(tempCnt > rowCount){
+            rowCount = tempCnt;
+            maxRowIdx = i;
         }
     }
 
-    vector<int> cols(m, 0);
+    int colCount = 0;
+    int maxColIdx = 0;
     for(int i=0; i<m; i++){
         int tempCnt = 0;
         for(int j=0; j<n; j++){
-            if(pictures[j][i] == '.') cols[i]++;
+            if(pictures[j][i] == '*') tempCnt++;
+        }
+        if(tempCnt > colCount){
+            colCount = tempCnt;
+            maxColIdx = i;
         }
     }
-    int minPaint = 
-    for(int i=0; i<n; i++){
-        for(int j=0; j<m; j++){
-
-        }
-    }
+    int neededMin = (n-colCount) + (m-rowCount);
+    if(pictures[maxRowIdx][maxColIdx] != '*') neededMin--;
     prt(neededMin);
+    }
+
 }
 
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    // int t; cin >> t;
-    int t = 1;
+    int t; cin >> t;
+    // int t = 1;
     while(t--) solve();
 
     return 0;
