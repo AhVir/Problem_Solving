@@ -7,43 +7,55 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-#define int long long
+// #define int long long
 // #define int unsigned long long
 
+int n, m;
+const int sz = 5e4+123;
+int rows[sz], cols[sz];
+string pictures[sz];
+
+
 int validSoln() {
-	int n, m;
-	cin >> n >> m;
-	vector<string> s(n);
-	forn(i, n)
-		cin >> s[i];
+	// int n, m;
+	// cin >> n >> m;
+	// vector<string> s(n);
+	// forn(i, n)
+	// 	cin >> s[i];
 	vector<int> cntn(n), cntm(m);
 	forn(i, n) forn(j, m){
-		cntn[i] += (s[i][j] == '.');
-		cntm[j] += (s[i][j] == '.');
+		cntn[i] += (pictures[i][j] == '.');
+		cntm[j] += (pictures[i][j] == '.');
 	}
 	int ans = n + m;
 	forn(i, n) forn(j, m){
-		ans = min(ans, cntn[i] + cntm[j] - (s[i][j] == '.'));
+		ans = min(ans, cntn[i] + cntm[j] - (pictures[i][j] == '.'));
 	}
+    prt("cntn:");
+    for(int i=0; i<n; i++){
+        cout << cntn[i] << " ";
+    }
+    cout << endl;
+
+    prt("cntm:");
+    for(int i=0; i<m; i++){
+        cout << cntm[i] << " ";
+    }
+    cout << endl;
     pr(ans);
 
     return ans;
 }
 
-
-const int sz = 5e4+123;
-int rows[sz], cols[sz];
-string pictures[sz];
-
 int solve(){
-    int n, m; cin >> n >> m;
+    // int n, m; cin >> n >> m;
     //resetting matrix numbers
     memset(rows, 0, sizeof(rows));
     memset(cols, 0, sizeof(cols));
 
-    for(int i=0; i<n; i++){
-        cin >> pictures[i];
-    }
+    // for(int i=0; i<n; i++){
+    //     cin >> pictures[i];
+    // }
     // prt("Printing: ");
     // for(int i=0; i<n; i++){
     //     for(int j=0; j<m; j++) cout << pictures[i][j];
@@ -83,12 +95,19 @@ int solve(){
 }
 
 int32_t main(){
+    freopen("out.txt", "w", stdout);
     srand(time(NULL));
 
     int q = rand() % 10;
+    //for testing:
+    // int q = 1;
+    prt(q);
     while(q--){
         int n = rand() % 10 + 1;
         int m = rand() % 10 + 1;
+
+        //for testing purpose:
+        // int n = 3, m = 4;
 
         for(int i=0; i<n; i++){
             pictures[i] = "";
@@ -97,10 +116,32 @@ int32_t main(){
         for(int i=0; i<n; i++){
             string temp = "";
             for(int j=0; j<m; j++){
-                int temp = rand()%10;
-                if(temp%2 == 0) temp.pu
+                int tempNum = rand()%10;
+                if(tempNum%2 == 0) temp.push_back('*');
+                else temp.push_back('.');
             }
+            pictures[i] = temp;
         }
+
+        //testing debugger
+        // pictures[0] = "****";
+        // pictures[1] = ".*..";
+        // pictures[2] = ".*..";
+        prt(n); prt(m);
+        for(int i=0; i<n; i++){
+            cout << pictures[i] << endl;
+        }
+
+        // int correctAns = validSoln();
+        // int mySoln = solve();
+
+        // if(correctAns != mySoln){
+        //     prt("WA printing: ");
+        //     for(int i=0; i<n; i++){
+        //         for(int j=0; j<m; j++) cout << pictures[i][j];
+        //         cout << endl;
+        //     }
+        // }
     }
     return 0;
 }

@@ -60,6 +60,7 @@ void solve(){
 }
 
 int32_t main(){
+    freopen("out.txt", "r", stdin);
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 

@@ -6,6 +6,7 @@ using namespace std;
 
 
 int main() {
+	freopen("out.txt", "r", stdin);
 	int q;
 	cin >> q;
 	forn(_, q){
