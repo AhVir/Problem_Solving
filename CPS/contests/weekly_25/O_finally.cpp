@@ -14,43 +14,39 @@ void solve(){
     vector<string> pics(n);
 
     for(int i=0; i<n; i++){
-        string temp = "";
-        for(int j=0; j<m; j++){
-            char t; cin >> t;
-            temp.push_back(t);
-        }
-        pics[i] = temp;
+        string t; cin >> t;
+        pics[i] = t;
     }
 
-    hi;
+    // prt("print: ");
+    // for(int i=0; i<n; i++){
+    //     for(int j=0; j<m; j++) cout << pics[i][j];
+    //     cout << endl;
+    // }
 
     //counting rows
     vector<int> rowCnt(n, 0);
+    vector<int> colCnt(m, 0);
     for(int i=0; i<n; i++){
         for(int j=0; j<m; j++){
-            if(pics[i][j] == '.') rowCnt[i]++;
+            if(pics[i][j] == '.') rowCnt[i]++, colCnt[j]++;
         }
     }
-
-    hi;
 
     //counting cols
-    vector<int> colCnt(m, 0);
-    for(int i=0; i<m; i++){
-        for(int j=0; j<n; j++){
-            if(pics[i][j] == '.') colCnt[i]++;
-        }
-    }
+    // for(int i=0; i<m; i++){
+    //     for(int j=0; j<n; j++){
+    //         if(pics[i][j] == '.') colCnt[i]++;
+    //     }
+    // }
 
-    hi;
+    // prt("rows:");
+    // for(int i=0; i<n; i++) cout << rowCnt[i] << " ";
+    // cout << endl;
 
-    prt("rows:");
-    for(int i=0; i<n; i++) cout << rowCnt[i] << " ";
-    cout << endl;
-
-    prt("col:");
-    for(int i=0; i<m; i++) cout << colCnt[i] << " ";
-    cout << endl;
+    // prt("col:");
+    // for(int i=0; i<m; i++) cout << colCnt[i] << " ";
+    // cout << endl;
 
     int ans = n+m;
     for(int i=0; i<n; i++){
@@ -61,10 +57,11 @@ void solve(){
         }
     }
 
-    pr(ans);
+    prt(ans);
 }
 
 int32_t main(){
+    // freopen("out.txt", "r", stdin);
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
