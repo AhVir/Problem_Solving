@@ -24,33 +24,35 @@ void solve(){
     // }
 
     //finding maxRow count:
-    int rowCount = 0;
+    int rowCount = INT_MAX;
     int maxRowIdx = 0;
     for(int i=0; i<n; i++){
         int tempCnt = 0;
         for(int j=0; j<m; j++){
-            if(pictures[i][j] == '*') tempCnt++;
+            if(pictures[i][j] == '.') tempCnt++;
         }
-        if(tempCnt > rowCount){
+        if(tempCnt < rowCount){
             rowCount = tempCnt;
             maxRowIdx = i;
         }
     }
 
-    int colCount = 0;
+    int colCount = INT_MAX;
     int maxColIdx = 0;
     for(int i=0; i<m; i++){
         int tempCnt = 0;
         for(int j=0; j<n; j++){
-            if(pictures[j][i] == '*') tempCnt++;
+            if(pictures[j][i] == '.') tempCnt++;
         }
-        if(tempCnt > colCount){
+        if(tempCnt < colCount){
             colCount = tempCnt;
             maxColIdx = i;
         }
     }
-    int neededMin = (n-colCount) + (m-rowCount);
-    if(pictures[maxRowIdx][maxColIdx] != '*') neededMin--;
+    pr(rowCount);
+    pr(colCount);
+    int neededMin = colCount + rowCount;
+    if(pictures[maxRowIdx][maxColIdx] == '*') neededMin--;
     prt(neededMin);
 }
 
