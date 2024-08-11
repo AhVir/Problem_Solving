@@ -6,7 +6,7 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-//#define int long long
+#define int long long
 //#define int unsigned long long
 
 int occur[26];
@@ -38,19 +38,20 @@ void solve(){
                     char temp = 'a' + j;
                     ans.push_back(temp);
                     occur[j]++;
+                    break;
                 }
             }
         }
     }
-    pr(ans);
+    prt(ans);
 }
 
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    //int t; cin >> t;
-    int t = 1;
+    int t; cin >> t;
+    // int t = 1;
     while(t--) solve();
 
     return 0;
