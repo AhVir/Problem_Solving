@@ -13,17 +13,25 @@ using namespace std;
 
 void solve(){
     int n; cin >> n;
+    pr(n);
     vector<int> nums;
     for(int i=0; i<n; i++){
         int t; cin >> t;
         nums.push_back(t);
     }
 
+    // for(int i=0; i<n; i++) cout << nums[i] << " ";
+    // cout << endl;
+
     int gcd = 1;
+    int storedGcd = nums[0];
     for(int i=1; i<n; i++){
-        gcd = __gcd(nums[0], nums[i]);
-        cout << i << ": " << gcd << endl;
+        gcd = __gcd(storedGcd, nums[i]);
+        storedGcd = gcd;
+        // cout << i << ": " << gcd << endl;
     }
+
+    if(n == 1) gcd = nums[0];
 
     pr(gcd);
     int cnt = 0;
@@ -43,8 +51,8 @@ int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    //int t; cin >> t;
-    int t = 1;
+    int t; cin >> t;
+    // int t = 1;
     while(t--) solve();
 
     return 0;

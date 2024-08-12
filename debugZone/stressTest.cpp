@@ -6,10 +6,11 @@ int main(){
 
     srand(time(NULL));
 
-    int t = 1;
+    // int t = 1;
+    int t = rand() % 10 + 1;
     cout << t << endl;
     while(t--){
-        int n = rand() % 10 + 1;
+        int n = rand() % 10 + 3;
         cout << n << endl;
 
         for(int i=0; i<n; i++){

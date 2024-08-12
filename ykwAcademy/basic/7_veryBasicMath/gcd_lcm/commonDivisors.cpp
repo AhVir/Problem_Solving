@@ -9,7 +9,7 @@ using namespace std;
 #define endl "\n"
 #define hi cout << "hi" << endl
 #define int long long
-//#define int unsigned long long
+// #define int unsigned long long
 
 void solve(){
     int n; cin >> n;
@@ -19,12 +19,15 @@ void solve(){
         nums.push_back(t);
     }
 
-    int gcd;
+    int gcd = 1;
+    int storedGcd = nums[0];
     for(int i=1; i<n; i++){
-        gcd = __gcd(nums[0], nums[i]);
+        gcd = __gcd(storedGcd, nums[i]);
+        storedGcd = gcd;
+        // cout << i << ": " << gcd << endl;
     }
-
-    pr(gcd);
+    if(n == 1) gcd = nums[0];
+    // pr(gcd);
     int cnt = 0;
     for(int i=1; i*i <= gcd; i++){
         if(gcd%i == 0){
