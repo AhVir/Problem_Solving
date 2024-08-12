@@ -19,9 +19,10 @@ void solve(){
         nums.push_back(t);
     }
 
-    int gcd;
+    int gcd = 1;
     for(int i=1; i<n; i++){
         gcd = __gcd(nums[0], nums[i]);
+        cout << i << ": " << gcd << endl;
     }
 
     pr(gcd);
@@ -38,6 +39,7 @@ void solve(){
 }
 
 int32_t main(){
+    freopen("out.txt", "r", stdin);
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
