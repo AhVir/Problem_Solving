@@ -9,8 +9,33 @@ using namespace std;
 //#define int long long
 //#define int unsigned long long
 
+struct DescendingCompBasedOnValue{
+    bool operator()(const int& l, const int& r) const{
+        return l > r;
+    }
+};
+
 void solve(){
-    m
+    unordered_map<string, int> mp;
+    int n; cin >> n; 
+    string str; cin >> str;
+
+    for(int i=0; i<n-1; i++){
+        string t = "";
+        t.push_back(str[i]);
+        t.push_back(str[i+1]);
+        mp[t]++;
+    }
+
+    int maxOccur = 0;
+    string maxGram = "";
+
+    for(auto X:mp){
+        // cout << X.first <<": " << X.second << endl;
+        if(X.second > maxOccur) maxOccur = X.second, maxGram = X.first;
+    }
+
+    prt(maxGram);
 }
 
 int32_t main(){
