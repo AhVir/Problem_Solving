@@ -32,6 +32,14 @@ void solve(){
 
     pr(isValid);
 
+    //if the given parenthesis string is valid
+    if(isValid){
+        prt("NO");
+        return;
+    }
+
+    //if not valid(constructing the ans string);
+    
 }
 
 int32_t main(){
