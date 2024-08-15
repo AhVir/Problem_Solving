@@ -29,22 +29,36 @@ void solve(){
 
     //check if palindrome
     int l = 0, r = n-1;
-    while(l<r)
+    while(l<r){
+        if(str[l] != str[r]){
+            prt(str);
+            return;
+        }
 
+        l++; r--;
+    }
+
+    //if this line executes, that means, str is palindrome
     int median = 0;
     (n%2 == 0) ? (median = (n/2)-1):(median = (n/2));
-    char temp = str[median];
-    str[median] = str[median+1];
-    str[median+1] = temp;
-    prt(str);
+    for(int i=0; i<n; i++){
+        if(i == median) continue;
+        if(str[i] != str[median]){
+            char temp = str[i];
+            str[i] = str[median];
+            str[median] = temp;
+            prt(str);
+            return;
+        }
+    }
 }
 
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    //int t; cin >> t;
-    int t = 1;
+    int t; cin >> t;
+    // int t = 1;
     while(t--) solve();
 
     return 0;

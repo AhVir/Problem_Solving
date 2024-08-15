@@ -1,5 +1,3 @@
-// link: https://codeforces.com/problemset/problem/1389/A
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -8,48 +6,58 @@ using namespace std;
 #define prt(x) cout << x << endl
 #define endl "\n"
 #define hi cout << "hi" << endl
-#define int long long
+#define br cout << endl
+//#define int long long
 //#define int unsigned long long
 
 void solve(){
-    int n; cin >> n;
-    pr(n);
-    vector<int> nums;
+    string str; cin >> str;
+    int n = str.length();
+
+    //if only one char
+    if(n == 1){
+        prt(str);
+        return;
+    }
+
+    bool containsOneChar = str.find_first_not_of(str[0]) == string::npos;
+    if(containsOneChar){
+        prt(-1);
+        return;
+    }
+
+
+    //check if palindrome
+    int l = 0, r = n-1;
+    while(l<r){
+        if(str[l] != str[r]){
+            prt(str);
+            return;
+        }
+
+        l++; r--;
+    }
+
+    //if this line executes, that means, str is palindrome
+    int median = 0;
+    (n%2 == 0) ? (median = (n/2)-1):(median = (n/2));
     for(int i=0; i<n; i++){
-        int t; cin >> t;
-        nums.push_back(t);
-    }
-
-    // for(int i=0; i<n; i++) cout << nums[i] << " ";
-    // cout << endl;
-
-    int gcd = 1;
-    int storedGcd = nums[0];
-    for(int i=1; i<n; i++){
-        gcd = __gcd(storedGcd, nums[i]);
-        storedGcd = gcd;
-        // cout << i << ": " << gcd << endl;
-    }
-
-    if(n == 1) gcd = nums[0];
-
-    pr(gcd);
-    int cnt = 0;
-    for(int i=1; i*i <= gcd; i++){
-        if(gcd%i == 0){
-            cnt++;
-            int otherNum = gcd/i;
-            if(i != otherNum) cnt++;
+        if(i == median) continue;
+        if(str[i] != str[median]){
+            char temp = str[i];
+            str[i] = str[median];
+            str[median] = temp;
+            prt(str);
+            return;
         }
     }
-
-    prt(cnt);
 }
 
 int32_t main(){
-    freopen("out.txt", "r", stdin);
     ios::sync_with_stdio(false);
     cin.tie(NULL);
+
+    freopen("out.txt", "r", stdin);
 
     int t; cin >> t;
     // int t = 1;

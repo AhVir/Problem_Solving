@@ -11,13 +11,20 @@ int main(){
     cout << t << endl;
     while(t--){
         int n = rand() % 10 + 3;
-        cout << n << endl;
+        // int n = 4;
+        // cout << n << endl;
 
-        for(int i=0; i<n; i++){
-            int temp = rand()%20 + 1;
-            cout << temp << " ";
+        string ans = "";
+        string half = "";
+        for(int i=0; i<=n/2; i++){
+            int temp = rand()%26;
+            char t = 'a' + temp;
+            ans.push_back(t);
+            if(i != (n/2)) half.push_back(t);
         }
-        cout << endl;
+        reverse(half.begin(), half.end());
+        ans += half;
+        cout << ans << endl;
     }
 
     return 0;
