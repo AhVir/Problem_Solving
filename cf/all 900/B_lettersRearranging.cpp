@@ -26,7 +26,6 @@ void solve(){
         return;
     }
 
-
     //check if palindrome
     int l = 0, r = n-1;
     while(l<r){
