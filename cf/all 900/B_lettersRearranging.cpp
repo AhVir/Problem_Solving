@@ -16,7 +16,7 @@ void solve(){
 
     //if only one char
     if(n == 1){
-        prt(str);
+        prt(-1);
         return;
     }
 

@@ -7,57 +7,37 @@ using namespace std;
 #define endl "\n"
 #define hi cout << "hi" << endl
 #define br cout << endl
-//#define int long long
-//#define int unsigned long long
+// #define int long long
+#define int unsigned long long
+
+int Pow(int a, int b){
+    int res = 1;
+    while(b > 0){
+        if(b%2 != 0) res = res * a;
+        a = a * a;
+        b = b >> 1;
+    }
+
+    return res;
+}
 
 void solve(){
-    string str; cin >> str;
-    int n = str.length();
-
-    //if only one char
-    if(n == 1){
-        prt(str);
-        return;
-    }
-
-    bool containsOneChar = str.find_first_not_of(str[0]) == string::npos;
-    if(containsOneChar){
-        prt(-1);
-        return;
-    }
-
-
-    //check if palindrome
-    int l = 0, r = n-1;
-    while(l<r){
-        if(str[l] != str[r]){
-            prt(str);
-            return;
-        }
-
-        l++; r--;
-    }
-
-    //if this line executes, that means, str is palindrome
-    int median = 0;
-    (n%2 == 0) ? (median = (n/2)-1):(median = (n/2));
-    for(int i=0; i<n; i++){
-        if(i == median) continue;
-        if(str[i] != str[median]){
-            char temp = str[i];
-            str[i] = str[median];
-            str[median] = temp;
-            prt(str);
-            return;
-        }
-    }
+    int n; cin >> n;
+    pr(n);
+    int num = 1378;
+    int lastNum = 8;
+    int cal = Pow(lastNum, n);
+    pr(cal);
+    // for(int i=1; i<n; i++) cal *= lastNum;
+    pr(cal%10);
+    int wholeCal = Pow(num, n);
+    pr(wholeCal);
 }
 
 int32_t main(){
+    freopen("out.txt", "r", stdin);
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-
-    freopen("out.txt", "r", stdin);
 
     int t; cin >> t;
     // int t = 1;

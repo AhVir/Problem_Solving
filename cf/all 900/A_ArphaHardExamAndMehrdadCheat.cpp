@@ -7,14 +7,24 @@ using namespace std;
 #define endl "\n"
 #define hi cout << "hi" << endl
 #define br cout << endl
-#define int long long
-//#define int unsigned long long
+// #define int long long
+#define int unsigned long long
+
+int Pow(int a, int b){
+    int res = 1;
+    while(b > 0){
+        if(b%2 != 0) res = 1ll *res * a;
+        a = a * a * 1ll;
+        b = b >> 1;
+    }
+
+    return res;
+}
 
 void solve(){
     int n; cin >> n;
     int lastNum = 8;
-    int cal = 8;
-    for(int i=1; i<n; i++) cal *= lastNum;
+    int cal = Pow(lastNum, n);
     prt(cal%10);
 }
 
