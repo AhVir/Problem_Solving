@@ -2,7 +2,7 @@
 using namespace std;
 
 #define input freopen("in.txt", "r", stdin)
-#define debugin freopen("out.txt", "r", stdin)
+#define debugIn freopen("out.txt", "r", stdin)
 #define pr(x) cout << #x << " = " << x << endl
 #define prt(x) cout << x << endl
 #define endl "\n"
@@ -12,7 +12,12 @@ using namespace std;
 //#define int unsigned long long
 
 void solve(){
+    int h, l; cin >> h >> l;
+    int total = h + l;
+    total--;
+    if(total > 10) total = 10;
 
+    cout << total-h << " " << total-l << endl;
 }
 
 int32_t main(){
