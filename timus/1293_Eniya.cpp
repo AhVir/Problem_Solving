@@ -15,7 +15,7 @@ void solve(){
     int n, a, b; cin >> n >> a >> b;
     int cal = (a*b) * n;
 
-    pr(cal*2);
+    prt(cal*2);
 }
 
 int32_t main(){
