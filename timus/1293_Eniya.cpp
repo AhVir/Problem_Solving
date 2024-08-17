@@ -12,14 +12,10 @@ using namespace std;
 //#define int unsigned long long
 
 void solve(){
-  vector<string> str;
-  int t = 4;
-  while(t--){
-    string st; cin >> st;
-    str.push_back(st);
-  }
+    int n, a, b; cin >> n >> a >> b;
+    int cal = (a*b) * n;
 
-  for(auto X:str) cout << X << endl;
+    pr(cal*2);
 }
 
 int32_t main(){
