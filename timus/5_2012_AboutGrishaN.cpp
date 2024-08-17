@@ -12,7 +12,12 @@ using namespace std;
 //#define int unsigned long long
 
 void solve(){
-    
+    int f; cin >> f;
+    //time left after the first hour = (5-1) * 60 = 240
+    //and if each problem for 45 mins, then at most floor(240/45) = 5 problems can be solved
+    int needToSolve = 12-f;
+    if(needToSolve <= 5) prt("YES");
+    else prt("NO");
 }
 
 int32_t main(){
