@@ -30,15 +30,15 @@ void solve(){
 
   // Output the numbers to verify (or process as needed)
   for (unsigned long long num : numbers) {
-    pr(sqrtl(num));
+    // pr(sqrtl(num));
+    cout << fixed << setprecision(4) << sqrtl(num) << endl;
   }
 }
 
 int32_t main(){
-  input1;
+  // input1;
   ios::sync_with_stdio(false);
   cin.tie(NULL);
-  setprecision(4);
 
   //int t; cin >> t;
   int t = 1;
