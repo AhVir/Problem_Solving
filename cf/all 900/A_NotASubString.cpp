@@ -29,16 +29,25 @@ void solve(){
         }
     }
     if(!st.empty()) isValid = false;
-
-    pr(isValid);
+    // pr(isValid);
 
     //for -> ()
     if(str.length() == 2 && isValid){
         prt("NO");
         return;
     }
+
+    //if program doesn't end before, that means, there's suitable answer
+    prt("YES");
     
-    //if valid
+    //if not valid(constructing the ans string);
+    if(!isValid){
+        for(int i=0; i<str.length(); i++){
+            if(str[i] == '(') str[i] = ')';
+            else str[i] = '(';
+        }
+    }   
+
     vector<char> ans;
     int leftCnt = 0, rightCnt = 0;
     for(int i=0; i<str.length(); i++){
@@ -48,27 +57,27 @@ void solve(){
         }
         else{
             rightCnt++;
+            leftCnt++;
             ans.push_back('(');
             ans.push_back(')');
         }
     }
 
     int diff = leftCnt-rightCnt;  //rightCnt will always be smaller;
+    // pr(diff);
     for(int i=1; i<=diff; i++) ans.push_back(')');
 
-    prt("Printing: ");
+    // prt("Printing: ");
     for(char X:ans) cout << X;
     cout << endl;
-
-    //if not valid(constructing the ans string);
 }
 
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    //int t; cin >> t;
-    int t = 1;
+    int t; cin >> t;
+    // int t = 1;
     while(t--) solve();
 
     return 0;
