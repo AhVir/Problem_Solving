@@ -32,14 +32,35 @@ void solve(){
 
     pr(isValid);
 
-    //if the given parenthesis string is valid
-    if(isValid){
+    //for -> ()
+    if(str.length() == 2 && isValid){
         prt("NO");
         return;
     }
+    
+    //if valid
+    vector<char> ans;
+    int leftCnt = 0, rightCnt = 0;
+    for(int i=0; i<str.length(); i++){
+        if(str[i] == '('){
+            leftCnt++;
+            ans.push_back('(');
+        }
+        else{
+            rightCnt++;
+            ans.push_back('(');
+            ans.push_back(')');
+        }
+    }
+
+    int diff = leftCnt-rightCnt;  //rightCnt will always be smaller;
+    for(int i=1; i<=diff; i++) ans.push_back(')');
+
+    prt("Printing: ");
+    for(char X:ans) cout << X;
+    cout << endl;
 
     //if not valid(constructing the ans string);
-    
 }
 
 int32_t main(){
