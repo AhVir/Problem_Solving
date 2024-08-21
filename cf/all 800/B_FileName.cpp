@@ -17,19 +17,11 @@ void solve(){
     int cnt = 0;
     for(int i=0; i<n; i++){
         if(str[i] == 'x'){
-            int tempCnt = 1;
-            int exploredIdx = 0;
-            for(int j=i+1; j<n; j++){
-                if(str[j] == 'x') tempCnt++;
-                else{
-                    
-                }
-            }
-            if(tempCnt >= 3){
-                cnt += (tempCnt-2);
-            }
+            
         }
     }
+
+    pr(cnt);
 }
 
 int32_t main(){
