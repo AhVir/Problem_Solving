@@ -12,23 +12,16 @@ using namespace std;
 //#define int unsigned long long
 
 void solve(){
-    int n; cin >> n;
     string str; cin >> str;
-    int cnt = 0;
-    for(int i=0; i<n; i++){
-        if(str[i] == 'x'){
-            int temp = i+1;
-            int tempCnt = 1;
-            while(str[temp] == 'x' && (temp < n)){
-                tempCnt++;
-                temp++;
-            }
-            // pr(tempCnt);
-            i = temp-1;
-            if(tempCnt >= 3) cnt += (tempCnt-2);
-        }
+    int n = str.size();
+
+    int aCnt = count(str.begin(), str.end(), 'a');
+    int neededA = (n/2) + 1;
+    if(aCnt >= neededA) prt(n);
+    else{
+        int temp = (2*aCnt)-1;
+        prt(temp);
     }
-    prt(cnt);
 }
 
 int32_t main(){

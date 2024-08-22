@@ -12,23 +12,27 @@ using namespace std;
 //#define int unsigned long long
 
 void solve(){
-    int n; cin >> n;
+    int n, k; cin >> n >> k;
     string str; cin >> str;
-    int cnt = 0;
+    vector<int> occurrence(26, 0);
+
     for(int i=0; i<n; i++){
-        if(str[i] == 'x'){
-            int temp = i+1;
-            int tempCnt = 1;
-            while(str[temp] == 'x' && (temp < n)){
-                tempCnt++;
-                temp++;
-            }
-            // pr(tempCnt);
-            i = temp-1;
-            if(tempCnt >= 3) cnt += (tempCnt-2);
-        }
+        // pr(str[i]);
+        int temp = str[i] - 'A';
+        // pr(temp);
+        occurrence[temp]++;
     }
-    prt(cnt);
+
+    // for(int i=0; i<26; i++) cout << occurrence[i] << " ";
+    // cout << endl;
+
+    int minVal = 100009;
+    for(int i=0; i<k; i++){
+        // if(occurrence[i])
+        minVal = min(occurrence[i], minVal);
+    }
+    int ans = minVal * k;
+    prt(ans);
 }
 
 int32_t main(){
