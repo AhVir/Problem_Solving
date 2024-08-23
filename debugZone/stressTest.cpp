@@ -12,8 +12,14 @@ int32_t main(){
     int t = rand() % 10 + 1;
     cout << t << endl;
     while(t--){
-        int n = rand() % 1000000000 + 3;
+        int n = rand() % 10 + 1;
         cout << n << endl;
+        for(int i=0; i<n; i++){
+            int temp = rand() % 26;
+            char tempChar = 'a' + temp;
+            cout << tempChar;
+        }
+        cout << endl;
     }
 
     return 0;
