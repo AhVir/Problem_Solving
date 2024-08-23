@@ -13,28 +13,35 @@ using namespace std;
 
 void solve(){
     int n; cin >> n;
-    string num; cin >> num;
+    string number; cin >> number;
+    if(n == 11 && number[0] != '8'){
+        prt("NO");
+        return;
+    }
 
-    int evenSubStringCnt = 0;
-    
+    int first8 = -1;
     for(int i=0; i<n; i++){
-        int number = num[i] - '0';
-        if(number%2 == 0) evenSubStringCnt++;
+        if(number[i] == '8'){
+            first8 = i;
+            break;
+        }
+    }
+    // pr(first8);
+    if(first8 == -1){
+        prt("NO");
+        return;
     }
 
-    for(int i=n-1; i>=0; i--){
-        int number = num[i] - '0';
-        if(number%2 == 0) evenSubStringCnt += i;
-    }
-    prt(evenSubStringCnt);
+    if(n-first8 >= 11) prt("YES");
+    else prt("NO");
 }
 
 int32_t main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    //int t; cin >> t;
-    int t = 1;
+    int t; cin >> t;
+    // int t = 1;
     while(t--) solve();
 
     return 0;
