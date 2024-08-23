@@ -19,7 +19,8 @@ void solve(){
     int smallCharIdx = -1;
     for(int i=1; i<n; i++){
         if(str[i] <= str[0]){
-            if(str[i] < smallChar){
+            // pr(str[i]);
+            if(str[i] <= smallChar){
                 smallChar = str[i];
                 smallCharIdx = i;
             }
@@ -29,6 +30,7 @@ void solve(){
     // pr(smallChar);
     // pr(smallCharIdx);
     if(smallCharIdx != -1) str.erase(smallCharIdx, 1), str.insert(0, 1, smallChar);
+    // prt("ANS:");
     prt(str);
 }
 
