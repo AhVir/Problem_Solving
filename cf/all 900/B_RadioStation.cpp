@@ -37,7 +37,7 @@ void solve(){
             }
         }
 
-        cout << configureNames[i] << " " << configureIps[i] << " #" << ""
+        cout << configureNames[i] << " " << configureIps[i] << " #" << mainNames[idx] << endl;
     }
 }
 
